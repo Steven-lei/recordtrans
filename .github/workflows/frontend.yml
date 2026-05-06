@@ -29,7 +29,8 @@ jobs:
           node-version: 22
           cache: "npm"
       - name: Install dependencies
-        run: npm install --os=linux --cpu=x64
+        run: npm install --save-optional @rolldown/binding-linux-x64-gnu
+
       - name: Build project
         run: npm run build
 
