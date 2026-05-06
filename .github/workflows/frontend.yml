@@ -1,0 +1,46 @@
+name: Deploy React App
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "audio-transcriber/**" # Only trigger if files in this folder change
+      - ".github/workflows/**" # Also trigger if the workflow itself changes
+
+permissions:
+  contents: read # allow read
+  pages: write # allow write to pages
+  id-token: write # allow id
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    defaults:
+      run:
+        working-directory: ./audio-transcriber
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./audio-transcriber/dist"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
