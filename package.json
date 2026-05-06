@@ -13,5 +13,8 @@
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-linux-x64-gnu": "^1.0.0-rc.18"
   }
 }
