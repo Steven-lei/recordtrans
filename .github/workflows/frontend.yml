@@ -29,7 +29,7 @@ jobs:
           node-version: 22
           cache: "npm"
       - name: Install dependencies
-        run: npm install
+        run: npm install --os=linux --cpu=x64
       - name: Build project
         run: npm run build
 
