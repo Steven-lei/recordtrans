@@ -1,0 +1,17 @@
+{
+  "name": "helicopter-project",
+  "workspaces": [
+    "audio-transcriber",
+    "backend"
+  ],
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w audio-transcriber",
+    "dev": "concurrently -c \"cyan.bold,magenta.bold\" \"npm:dev:backend\" \"npm:dev:frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
