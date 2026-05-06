@@ -30,6 +30,7 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: npm install --save-optional @rolldown/binding-linux-x64-gnu
+        working-directory: ./audio-transcriber
 
       - name: Build project
         run: npm run build
