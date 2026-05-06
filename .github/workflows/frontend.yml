@@ -6,7 +6,7 @@ on:
     paths:
       - "audio-transcriber/**" # Only trigger if files in this folder change
       - ".github/workflows/**" # Also trigger if the workflow itself changes
-
+  workflow_dispatch:
 permissions:
   contents: read # allow read
   pages: write # allow write to pages
